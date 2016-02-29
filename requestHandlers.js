@@ -40,10 +40,11 @@ function handshake(request, response, postData) {
         "FromUserName": [ me ] ,
         "CreateTime": [ createTime.toFixed() ],
         "MsgType": [ "text" ],
-        "Content": [ "冰冰！我是智障" ]
+        "Content": [ "冰冰！我是你的智障" ]
       };
-      console.log(genResponseBody(msgResponse));
-      response.write("");
+	  var responseXml = genResponseBody(msgResponse);
+	  console.log(responseXml);
+      response.write(responseXml);
       response.end();
     }
   }

@@ -14,7 +14,7 @@ function parseMessageBody(bodyXml) {
 }
 
 function genResponseBody(obj) {
-  var builder = new xml2js.Builder();
+  var builder = new xml2js.Builder( {cdata: true, rootName: "xml", headless: true} );
   var xml = builder.buildObject(obj);
   return xml;
 }
