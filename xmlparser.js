@@ -5,12 +5,17 @@ function parseMessageBody(bodyXml) {
   xml2js.parseString(bodyXml, function (err, result) {
      xmlObj = result.xml;
   });
-  var parsed = {
-      "me": xmlObj.ToUserName[0],
-      "client": xmlObj.FromUserName[0],
-      "content": xmlObj.Content[0]
-  };
-  return parsed;
+  if (xmlObj.MsgType == "text") {
+    var parsed = {
+        "me": xmlObj.ToUserName[0],
+        "client": xmlObj.FromUserName[0],
+        "content": xmlObj.Content[0]
+    };
+    return parsed;
+  }
+  else {
+    return null;
+  }
 }
 
 function genResponseBody(obj) {
