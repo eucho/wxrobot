@@ -2,7 +2,7 @@ var requestHandlers = require("./requestHandlers");
 var url = require("url");
 
 var handles = {
-  "/" : requestHandlers.handshake
+  "/" : requestHandlers.requestHandler
 };
 
 function route(request, response, postData) {

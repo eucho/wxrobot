@@ -9,11 +9,9 @@ function start() {
     var postData = "";
     request.addListener("data", function(postDataChunk) {
       postData += postDataChunk;
-      console.log("Received POST data chunk '"+
-      postDataChunk + "'.");
     });
     request.addListener("end", function() {
-    router.route(request, response, postData);
+      router.route(request, response, postData);
     });
 
   }
